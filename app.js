@@ -5,14 +5,18 @@ let posicionAleatoria = Math.floor(Math.random()*maximoValor)+1;
 
 let listaMisAmigos = [];
 
-console.log(posicionAleatoria);
+//console.log(posicionAleatoria);
 
 function agregarAmigo() {
     let nombresDeAmigos = document.getElementById('amigo').value;
     listaMisAmigos.push(nombresDeAmigos);
-    
-    console.log(nombresDeAmigos);
-    console.log(listaMisAmigos);
+
+    if (nombresDeAmigos === "") {
+        alert("Por favor, inserte un nombre");
+        return;
+    }
+    //console.log(nombresDeAmigos);
+    //console.log(listaMisAmigos);
     limpiarImput();
 }
 
@@ -20,6 +24,20 @@ function limpiarImput() {
     document.querySelector('#amigo').value = '';
 }
 
+function actualizaListaAmigos() {
+    let listaAmigosHTML = document.getElementById('listaAmigos');
+    listaAmigosHTML.innerHTML = '';
+
+    for(let i = 0; i < listaMisAmigos.length; i++) {
+        listaAmigosHTML.innerHTML += "<li>" + listaMisAmigos[i] + "</li>";
+    }
+
+actualizaListaAmigos();
+
+console.log(actualizaListaAmigos());
+}
+
+
 function sortearAmigo() {
-    
+
 }
